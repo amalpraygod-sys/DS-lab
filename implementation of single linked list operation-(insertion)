@@ -1,0 +1,30 @@
+class Node:
+    def _init_(self, data_val):
+        self.data_val = data_val
+        self.next_val = None
+
+class LinkedList:
+    def _init_(self):
+        self.head_val = None
+
+    def listprint(self):
+        printval = self.head_val
+        while printval is not None:
+            print(printval.data_val)
+            printval = printval.next_val
+
+    def AtBeginning(self, new_data):
+        new_node = Node(new_data)
+        new_node.next_val = self.head_val
+        self.head_val = new_node
+
+linked_list_obj = LinkedList()
+linked_list_obj.head_val = Node("Mon")
+e2 = Node("Tue")
+e3 = Node("Wed")
+
+linked_list_obj.head_val.next_val = e2
+e2.next_val = e3
+
+linked_list_obj.AtBeginning("Sun")
+linked_list_obj.listprint()
